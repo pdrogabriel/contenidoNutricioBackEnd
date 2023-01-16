@@ -9,5 +9,4 @@ public class ContenidoNutricioBackEndApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ContenidoNutricioBackEndApplication.class, args);
 	}
-
 }
