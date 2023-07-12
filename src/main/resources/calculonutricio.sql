@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.29, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
 -- Host: localhost    Database: contenidoNutricio
 -- ------------------------------------------------------
--- Server version	8.0.31-0ubuntu0.20.04.2
+-- Server version	8.0.33-0ubuntu0.22.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -185,10 +185,20 @@ CREATE TABLE `user_roles` (
   `role_id` int NOT NULL,
   KEY `usuario_rol_ibfk_1` (`user_id`),
   KEY `usuario_rol_ibfk_2` (`role_id`),
-  CONSTRAINT `usuario_rol_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `usuario_rol_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `usuario_rol_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+LOCK TABLES `user_roles` WRITE;
+/*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
+INSERT INTO `user_roles` VALUES (21,3),(22,3),(23,3),(24,1),(25,1),(26,1),(27,1);
+/*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
@@ -199,13 +209,28 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `apellido_paterno` varchar(45) DEFAULT NULL,
+  `apellido_materno` varchar(45) DEFAULT NULL,
+  `institucion` varchar(100) DEFAULT NULL,
+  `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(200) DEFAULT NULL,
-  `username` varchar(50) NOT NULL,
+  `acceso` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (21,'Sabina','López','Toledo','Universidad de la Sierra Sur','sabina','sabina.ltoledo@gmail.com','$2a$10$yUyjZsrqNoJXTfjVCy39e.pl8xkNMS8jyKTyFJSz0x5vQp/O5TCPe','0'),(22,'Silviana','Juárez','Chalini','Universidad de la Sierra Sur','silviana','silviana.jchalini@gmail.com','$2a$10$3MYTVpQamblT5fHhxnqea.0oVfsRP9bOnP8H6D6tmWlSyE0yZnRY6','0'),(23,'Rolando','Pedro','Gabriel','Universidad de la Sierra Sur','rolando','rolando.pedro.gabriel@gmail.com','$2a$10$NGb2PvkOL/zNy8cdpma9OuIoEcrLN4n.8uTvn12n4nQzbKf7WgD6u','0'),(24,'Roxana Grisel','Cásarez','Santiago','Universidad de la Sierra Sur','roxana','rox.casarez@unsis.edu.mx','$2a$10$rRSCpdfCHa4ZDwB5Ms2wA.IkLwNSjnvUqoxnC/ImyDqvDF7rOqHJ2','0'),(25,'  Fátima Araceli','Ramírez','Caballero','Universidad de la Sierra Sur','fatima','fcaballero@unsis.edu.mx','$2a$10$/tLpSNekYtDfd7fNPIBVJOplHdI7NTmvbUCu95yYSHquyGMOQ2NhG','0'),(26,'Araceli','Meneses','Corona','Universidad de la Sierra Sur','araceli','ameneses@unsis.edu.mx','$2a$10$JrkzIbe6X7Uose/wr/KQw.LtmaHchgGzram/9iS11TSLJVWOz3eMu','0'),(27,'Laura Yocelin','Valdez','Gutierrez','Universidad de la Sierra Sur','laura','laura.gutierrez@unsis.edu.mx','$2a$10$7mwjw5ykyF8bpNJWmGfn2OFojfKrUboP.Mewyp3arozWSJdyiS.cG','0');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
@@ -215,4 +240,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-15 18:38:22
+-- Dump completed on 2023-07-12 13:39:03
