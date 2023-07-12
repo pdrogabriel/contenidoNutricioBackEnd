@@ -1,8 +1,19 @@
+/******************************************************************************
+ * @Directora del proyecto: Sabina López Toledo                               *
+ * @Coordinadora y Desarrolladora: Silviana Juárez Chalini                    *
+ * @Desarrollador: Rolando Pedro Gabriel                                      *
+ * Fecha de Creación: 22/04/2022                                              *
+ * Fecha de Actualización: 11/07/2023                                         *
+ * Descripción: Esta clase modela todos los atributos relacionados con        *
+ *              el alimento. Por ejemplo: Acelga cruda, Acelga picada cocida, *
+ *              etc. Esta clase mantiene una relación de muchos a uno con las *
+ *              entididades grupo alimento y unidad.                          *
+ *****************************************************************************/
+
 package unsis.edu.mx.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +24,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-//ALTER TABLE alimento RENAME COLUMN unidadId to unidad_id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -43,7 +53,6 @@ public class Alimento implements Serializable {
     @JoinColumn(name = "unidadId", referencedColumnName = "idUnidad")
     @ManyToOne(optional = false)
     private Unidad unidad;
-    //private Integer unidad_id;
 
     public Alimento() {
     }
@@ -105,12 +114,4 @@ public class Alimento implements Serializable {
     public void setUnidad(Unidad unidad) {
         this.unidad = unidad;
     }
-
-	/*public Integer getUnidad_id() {
-		return unidad_id;
-	}
-
-	public void setUnidad_id(Integer unidad_id) {
-		this.unidad_id = unidad_id;
-	}*/
 }

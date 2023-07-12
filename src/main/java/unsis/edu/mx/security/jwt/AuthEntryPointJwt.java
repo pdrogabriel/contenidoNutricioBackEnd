@@ -1,20 +1,27 @@
+/******************************************************************************
+ * @Directora del proyecto: Sabina López Toledo                               *
+ * @Coordinadora y Desarrolladora: Silviana Juárez Chalini                    *
+ * @Desarrollador: Rolando Pedro Gabriel                                      *
+ * Fecha de Creación: 22/04/2022                                              *
+ * Fecha de Actualización: 11/07/2023                                         *
+ * Descripción: Esta clase se toma tal cual del siguiente repositorio:        *
+ *              https://www.bezkoder.com/spring-boot-jwt-authentication/      *
+ *****************************************************************************/
+
 package unsis.edu.mx.security.jwt;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component
@@ -39,5 +46,4 @@ public class AuthEntryPointJwt implements AuthenticationEntryPoint {
     final ObjectMapper mapper = new ObjectMapper();
     mapper.writeValue(response.getOutputStream(), body);
   }
-
 }

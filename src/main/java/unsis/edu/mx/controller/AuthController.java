@@ -1,12 +1,25 @@
+/******************************************************************************
+ * @Directora del proyecto: Sabina López Toledo                               *
+ * @Coordinadora y Desarrolladora: Silviana Juárez Chalini                    *
+ * @Desarrollador: Rolando Pedro Gabriel                                      *
+ * Fecha de Creación: 22/04/2022                                              *
+ * Fecha de Actualización: 11/07/2023                                         *
+ * Descripción: Esta clase se toma tal cual del siguiente repositorio:        *
+ *              https://www.bezkoder.com/spring-boot-jwt-authentication/      *
+ *                                                                            *
+ *                                                                            *
+ *              Además se le agregan los campos de nombre, apellidoPaterno,   *
+ *              apellidoMaterno, institucion y acceso. Los cambios también se *
+ *              realizan en la base de datos.                                 *
+ *****************************************************************************/
+
 package unsis.edu.mx.controller;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
@@ -21,7 +34,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import unsis.edu.mx.entity.ERole;
 import unsis.edu.mx.entity.Role;
 import unsis.edu.mx.entity.User;
@@ -35,8 +47,9 @@ import unsis.edu.mx.security.jwt.JwtUtils;
 import unsis.edu.mx.security.services.UserDetailsImpl;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
-@RequestMapping("/calculo/usuario")
+//@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api/auth")
 public class AuthController {
   @Autowired
   AuthenticationManager authenticationManager;
@@ -87,10 +100,15 @@ public class AuthController {
     }
 
     // Create new user's account
-    User user = new User(signUpRequest.getUsername(),
+    User user = new User(signUpRequest.getNombre(), 
+			    		 signUpRequest.getApellidoPaterno(), 
+			    		 signUpRequest.getApellidoMaterno(), 
+			    		 signUpRequest.getInstitucion(), 
+			    		 signUpRequest.getAcceso(), 
+			    		 signUpRequest.getUsername(),
                          signUpRequest.getEmail(),
                          encoder.encode(signUpRequest.getPassword()));
-
+    
     Set<String> strRoles = signUpRequest.getRole();
     Set<Role> roles = new HashSet<>();
 

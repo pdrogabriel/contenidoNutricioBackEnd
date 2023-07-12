@@ -1,3 +1,15 @@
+/******************************************************************************
+ * @Directora del proyecto: Sabina López Toledo                               *
+ * @Coordinadora y Desarrolladora: Silviana Juárez Chalini                    *
+ * @Desarrollador: Rolando Pedro Gabriel                                      *
+ * Fecha de Creación: 22/04/2022                                              *
+ * Fecha de Actualización: 11/07/2023                                         *
+ * Descripción: Esta clase se toma tal cual del siguiente repositorio:        *
+ *              https://www.bezkoder.com/spring-boot-jwt-authentication/      *
+ *                                                                            *
+ *              Se agrega el método updateUsuario.                            *
+ *****************************************************************************/
+
 package unsis.edu.mx.service;
 
 import java.util.List;
@@ -23,5 +35,21 @@ public class UsuarioService {
 
 	public User createUsuario(User usuario) {
 		return repository.save(usuario);
+	}
+	
+	public void deleteUsuario(Long id) {
+		repository.deleteById(id);
+	}
+	
+	public void updateUsuario(User usuario) {
+		repository.save(usuario);
+	}
+	
+	public void spUpdateRolUsuario(int idUser, int idRol) {
+		repository.spUpdateRolUsuario(idUser, idRol);
+	}
+	
+	public int spGetUsuarioActivoByUserName(String username) {
+		return repository.spGetUsuarioActivoByUserName(username);
 	}
 }

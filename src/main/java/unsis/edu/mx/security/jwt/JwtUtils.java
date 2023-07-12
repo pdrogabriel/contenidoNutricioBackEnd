@@ -1,17 +1,24 @@
+/******************************************************************************
+ * @Directora del proyecto: Sabina López Toledo                               *
+ * @Coordinadora y Desarrolladora: Silviana Juárez Chalini                    *
+ * @Desarrollador: Rolando Pedro Gabriel                                      *
+ * Fecha de Creación: 22/04/2022                                              *
+ * Fecha de Actualización: 11/07/2023                                         *
+ * Descripción: Esta clase se toma tal cual del siguiente repositorio:        *
+ *              https://www.bezkoder.com/spring-boot-jwt-authentication/      *
+ *****************************************************************************/
+
 package unsis.edu.mx.security.jwt;
 
 import java.util.Date;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.WebUtils;
-
 import io.jsonwebtoken.*;
 import unsis.edu.mx.security.services.UserDetailsImpl;
 

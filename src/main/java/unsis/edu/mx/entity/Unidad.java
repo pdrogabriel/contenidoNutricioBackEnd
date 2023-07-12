@@ -1,3 +1,13 @@
+/******************************************************************************
+ * @Directora del proyecto: Sabina López Toledo                               *
+ * @Coordinadora y Desarrolladora: Silviana Juárez Chalini                    *
+ * @Desarrollador: Rolando Pedro Gabriel                                      *
+ * Fecha de Creación: 22/04/2022                                              *
+ * Fecha de Actualización: 11/07/2023                                         *
+ * Descripción: Esta clase se modelan las unidades, por ejemplo: Taza (Tza),  *
+ *              Pieza (Pza), Gramo (gr), etc.                                 *
+ *****************************************************************************/
+
 package unsis.edu.mx.entity;
 
 import java.io.Serializable;

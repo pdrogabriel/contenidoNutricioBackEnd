@@ -1,18 +1,22 @@
+/******************************************************************************
+ * @Directora del proyecto: Sabina López Toledo                               *
+ * @Coordinadora y Desarrolladora: Silviana Juárez Chalini                    *
+ * @Desarrollador: Rolando Pedro Gabriel                                      *
+ * Fecha de Creación: 22/04/2022                                              *
+ * Fecha de Actualización: 11/07/2023                                         *
+ * Descripción: Esta clase se modelan los nutrientes, así como: peso bruto    *
+ *              redondeado, peso neto, agua, etc.                             *
+ *****************************************************************************/
+
 package unsis.edu.mx.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "nutrientes")
@@ -25,10 +29,6 @@ public class Nutrientes implements Serializable {
  
     @Column(name = "nutriente", length = 20, nullable = false)
     private String nutriente;
-    
-   // @JsonIgnore
-   /* @OneToMany(cascade = CascadeType.ALL, mappedBy = "nutrientes")
-    private Collection<AlimentoNutriente> alimentoNutrienteCollection;*/
 
     public Nutrientes() {
     }
@@ -57,12 +57,4 @@ public class Nutrientes implements Serializable {
     public void setNutriente(String nutriente) {
         this.nutriente = nutriente;
     }
-
-   /* public Collection<AlimentoNutriente> getAlimentoNutrienteCollection() {
-        return alimentoNutrienteCollection;
-    }
-
-    public void setAlimentoNutrienteCollection(Collection<AlimentoNutriente> alimentoNutrienteCollection) {
-        this.alimentoNutrienteCollection = alimentoNutrienteCollection;
-    }*/
 }

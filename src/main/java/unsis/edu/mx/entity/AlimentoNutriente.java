@@ -1,3 +1,13 @@
+/******************************************************************************
+ * @Directora del proyecto: Sabina López Toledo                               *
+ * @Coordinadora y Desarrolladora: Silviana Juárez Chalini                    *
+ * @Desarrollador: Rolando Pedro Gabriel                                      *
+ * Fecha de Creación: 22/04/2022                                              *
+ * Fecha de Actualización: 11/07/2023                                         *
+ * Descripción: Esta clase modela una relación etre la entidad alimento y la  *
+ *              entidad nutriente.                                            *
+ *****************************************************************************/
+
 package unsis.edu.mx.entity;
 
 import java.io.Serializable;
@@ -11,7 +21,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 @Entity
 @Table(name = "alimento_nutriente")
